@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package conexao;
 
 import java.sql.Connection;
@@ -31,32 +27,32 @@ public class Conexao {
         }
     }
     
-    public static void closeConnection(Connection con){
+    public static void closeConnection(final Connection con){
         if(con != null){
             try {
                 con.close();
-            } catch (SQLException ex) {
+            } catch (final SQLException ex) {
                 System.err.println("Erro: " + ex);
             }
         } 
     }
     
-    public static void closeConnection(Connection con, PreparedStatement stmt){
+    public static void closeConnection(final Connection con, final PreparedStatement stmt){
         if(stmt != null){
             try {
                 stmt.close();
-            } catch (SQLException ex) {
+            } catch (final SQLException ex) {
                 System.err.println("Erro: " + ex);
             }
         } 
         closeConnection(con);
     }
     
-    public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet rs){
+    public static void closeConnection(final Connection con, final PreparedStatement stmt, final ResultSet rs){
         if(rs != null){
             try {
                 rs.close();
-            } catch (SQLException ex) {
+            } catch (final SQLException ex) {
                 System.err.println("Erro: " + ex);
             }
         } 
